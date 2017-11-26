@@ -95,7 +95,7 @@ class VideosController extends Controller
         if (!Gate::allows('video_create')) {
             return abort(401);
         }
-        if(Request::hasFile('file')){
+        if($request->file('file')){
             $file= Request::file('file');
             $filename= $file->getClientOriginalName();
             $path = public_path().'/uploads/';
